@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" id="Home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+
+<style>
+.question {
+  background-color: rgba(255, 182, 193, 0.568);
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+.question:hover {background-color: pink;}
+.answer {padding: 0 15px; background-color: white; display: none; overflow: hidden;}
+#more {display: none;}
+</style>
+
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+  <a href="index.html" class="active">🏠HOME</a>
+  <a href="about.html">🔍ABOUT</a>
+  <a href="cats.html">💥GAME</a>
+  <a href="shop.html">🛍️SHOP</a>
+  <a href="price.html">🏷️PRICE</a>
+</nav>      
+<!--SOCIAL MEDIA ICONS SIDEBAR-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="socials">
+  <a href="https://www.instagram.com/catsandfriends.uz/" class="instagram"><i class="fa fa-instagram"></i></a>
+  <a href="https://t.me/catsandfriends_uz" class="telegram"><i class="fa fa-telegram"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</aside>
+<!--SCROLL TO TOP BUTTON-->
+<button id="goToTopBtn" aria-label="Scroll to top" onclick="goToTop()">↑</button>
+
+<!--MAIN CONTENT-->
+<main class="content-box">
+  <div class="title">
+    <h1>First Catcafe in Uzbekistan</h1>
+    <h2>Coworking | Anti-cafe</h2>
+    <p>🕒Opening hours 10:00/22:00 daily<br> 📍Akkurgan st. 10, Mirzo-Ulugbek district</p>
+    <p>❗This website was created to fulfill Web Technology module’s requirements and does not represent an actual company or service</p>
+  </div>
+</main>
+<!--FAQ ACCORDION-->
+<div class="content-box">
+  <h2>💭FAQ</h2>
+  <button class="question">How should I interact with the cats?</button>
+  <div class="answer"><p>Be gentle, move calmly, and respect their boundaries.</p></div>
+  <button class="question">Are children allowed in the cat café?</button>
+  <div class="answer"><p>Yes, but children under 12 must be fully supervised by adults.</p></div>
+  <button class="question">Can I bring my own pet to the café?</button>
+  <div class="answer"><p>No, bringing your pet is not allowed, as it may cause stress for both your pet and the café’s cats.</p></div>
+  <button class="question">Can I feed the cats?</button>
+  <div class="answer"><p>Only with the administrator’s permission.</p></div>
+</div>
+<!--RULES-->
+<div class="content-box">
+  <p><b>📋RULES</b><br> For a comfortable and safe time in our cafe, please read our internal rules for visiting. By visiting the Cats And Friends cat cafe, you agree to our terms and accept the rules specified below.
+    <br>These rules establish the procedure for guests to stay in the Cats And Friends cat cafe (hereinafter referred to as the cat cafe).
+    <br>- When entering the cat cafe, you must put on shoe covers, they are available at the entrance (Make sure that the shoe covers are put on correctly and are not torn, you can change the shoe covers at any time).
+    <br><b>The restaurant premises are under video surveillance</b>
+    <br>- When entering and leaving, treat your hands with an antiseptic.
+    <br>- Refuse to visit the cat cafe if you are<span id="dots">...</span><span id="more">allergic to cats. The administration of the cat cafe is not responsible for the manifestation of an allergic reaction.
+    <br>- Children under 12 years old fully accompanied by parents (adults) you are fully responsible for your child and their actions.
+    <br>- Do not leave children unattended, hold small children by the hand.
+    <br>- When communicating with cats, remember their desires and needs. If you come with a child, show the child by your example how to communicate with a cat. Any animal, even the most affectionate and fluffy, has claws and teeth.
+    <br>- Touch the cats carefully. Move calmly, without sudden movements. <br>- Do not touch, pet, or tease the cats that the cat sitters have highlighted in "red".
+    <br>- Do not do anything against the will of the cats! Cats cannot be woken up, held by force in your arms, pulled by the paws / ears / tails, lifted to the second tier, fed without the administrator's permission, etc.</span>
+  </p>
+  <button onclick="moreFunc()" id="moreBtn">show more</button>
+</div>
+
+<script>
+//accordion for faq
+var acc = document.getElementsByClassName("question");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    var answer = this.nextElementSibling;
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+    } else {
+      answer.style.display = "block";
+    }
+  });
+}
+
+//read more or less
+function moreFunc() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("moreBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "show more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "show less";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+<!--FOOTER-->
+<footer class="footer">
+  <div class="footer-content">
+    <ul>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Partnerships</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+    <div class="newsletter-section">
+      <p>Subscribe to our newsletter we wont spam you</p>
+      <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

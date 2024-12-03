@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" id="Cats">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+
+<style>
+.slideshow-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.slideshow-image {
+    width: 20%;
+    height: auto;
+    animation: slide 5s infinite linear;
+}
+.carousel-container {text-align: center;}
+#startCarouselBtn {
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+#carousel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#circle-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+#circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*ANIMATION*/
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: scale(0.7);}
+    to {opacity: 1; transform: scale(1);}
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal.show {display: flex;}
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            animation: modalFadeIn 0.5s ease-out;
+        }
+        #catImage {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        #closeModalBtn {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #closeModalBtn:hover {background-color: lightseagreen;}
+</style>
+
+</head>
+<body>
+
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+    <a href="index.html">🏠HOME</a>
+    <a href="about.html">🔍ABOUT</a>
+    <a href="cats.html" class="active">💥GAME</a>
+    <a href="shop.html">🛍️SHOP</a>
+    <a href="price.html">🏷️PRICE</a>
+</nav>
+<!-- SLIDESHOW -->
+<main class="slideshow-container">
+    <img class="slideshow-image" src="../images/slideshow1.jpg" alt="Cat 1">
+    <img class="slideshow-image" src="../images/slideshow2.jpg" alt="Cat 2">
+    <img class="slideshow-image" src="../images/slideshow3.jpg" alt="Cat 3">
+    <img class="slideshow-image" src="../images/slideshow4.jpg" alt="Cat 4">
+    <img class="slideshow-image" src="../images/slideshow5.jpg" alt="Cat 5">
+</main>
+<!-- CAROUSEL -->
+<div class="carousel-container">
+    <button id="startCarouselBtn">CLICK ME!</button>
+    <div id="carousel">
+        <div id="circle-image">
+            <img src="../images/carousel.jpg" alt="carousel image">
+        </div>
+    </div>
+</div>    
+<!-- POP-UP -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <img id="catImage" src="../images/babycat.jpg" alt="Cat" />
+        <p id="catName"></p>
+        <button id="closeModalBtn">I KNOW</button>
+    </div>
+</div>
+
+<script>
+//Infinite scrolling for slideshow
+document.addEventListener("DOMContentLoaded", function() {
+    const slideshowContainer = document.querySelector(".slideshow-container");
+    const images = document.querySelectorAll(".slideshow-image");
+    
+    images.forEach(image => {
+        slideshowContainer.appendChild(image.cloneNode(true)); 
+    });
+
+    let scrollAmount = 0;
+    const scrollSpeed = 1;
+    
+    function scrollImages() {
+        if (scrollAmount >= slideshowContainer.scrollWidth / 2) {
+            slideshowContainer.scrollLeft = 0;
+            scrollAmount = 0;
+        } else {
+            slideshowContainer.scrollLeft += scrollSpeed;
+            scrollAmount += scrollSpeed;
+        }
+    }
+
+    setInterval(scrollImages, 10);
+});
+
+//Carousel animation and modal 
+document.getElementById("startCarouselBtn").addEventListener("click", function() {
+    const carousel = document.getElementById("carousel");
+    const catImages = ["../images/babycat.jpg", "../images/wizardcat.jpg", "../images/sleepcat.jpg", "../images/sillycat.jpg"];
+    const catMessages = ["Your cat is baby!", "Your cat is wizard!", "Your cat needs rest!", "Your cat is silly!"];
+    
+    //SPIN
+    carousel.style.transition = "transform 3s ease-in-out";
+    carousel.style.transform = "rotate(360deg)";
+    
+    //random
+    setTimeout(() => {
+        carousel.style.transition = "none";
+        carousel.style.transform = "rotate(0deg)";
+        
+        const randomIndex = Math.floor(Math.random() * catImages.length);
+        document.getElementById("catImage").src = catImages[randomIndex];
+        document.getElementById("catName").textContent = catMessages[randomIndex];
+        document.getElementById("modal").classList.add("show");
+    }, 3000);
+});
+
+//I KNOW
+document.getElementById("closeModalBtn").addEventListener("click", function() {
+    document.getElementById("modal").classList.remove("show");
+});
+</script>
+
+</body>
+</html>

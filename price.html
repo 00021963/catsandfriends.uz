@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" id="Price">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRICE | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+
+<style>
+.table-container { max-width: 600px; margin: auto; }
+.pricing-table { width: 100%; border-collapse: collapse; }
+.pricing-table th, .pricing-table td { border: 2px solid black; padding: 8px; text-align: center; }
+.pricing-table th { background-color: white; }
+</style>
+
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+  <a href="index.html">🏠HOME</a>
+    <a href="about.html">🔍ABOUT</a>
+    <a href="cats.html">💥GAME</a>
+    <a href="shop.html">🛍️SHOP</a>
+    <a href="price.html" class="active">🏷️PRICE</a>
+</nav>       
+<!--SOCIAL MEDIA ICONS SIDEBAR-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="socials">
+  <a href="https://www.instagram.com/catsandfriends.uz/" class="instagram"><i class="fa fa-instagram"></i></a>
+  <a href="https://t.me/catsandfriends_uz" class="telegram"><i class="fa fa-telegram"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</aside>
+<!--SCROLL TO TOP BUTTON-->
+<button id="goToTopBtn" aria-label="Scroll to top" onclick="goToTop()">↑</button>
+<!--MAIN CONTENT-->
+<div class="table-container">
+  <table class="pricing-table">
+    <thead>
+      <tr><th>Service Duration</th><th>Price</th></tr>
+    </thead>
+    <tbody id="price-table-body"></tbody>
+  </table>
+</div>
+
+<script>
+const prices = {
+  Weekdays: [['20 minutes', '35,000 sums'], ['40 minutes', '50,000 sums'], ['60 minutes', '70,000 sums']],
+  Weekends: [['20 minutes', '45,000 sums'], ['40 minutes', '50,000 sums'], ['60 minutes', '90,000 sums']]
+};
+
+const tbody = document.getElementById('price-table-body');
+for (const [day, slots] of Object.entries(prices)) {
+  tbody.innerHTML += `<tr><th colspan="2">${day}</th></tr>`;
+  slots.forEach(slot => tbody.innerHTML += `<tr><td>${slot[0]}</td><td>${slot[1]}</td></tr>`);
+}
+</script>
+
+<!--FOOTER-->
+<footer class="footer">
+    <div class="footer-content">
+      <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Partnerships</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+      <div class="newsletter-section">
+        <p>Subscribe to our newsletter we won't spam you!</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>

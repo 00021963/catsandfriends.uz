@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" id="About">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+
+<style>
+/*ABOUT*/
+.about-text h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 10px;
+}
+.about-text p {
+  font-size: 1rem;
+  color: #5a5a5a;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.about-image img {
+  max-width: 60%; 
+  height: auto;
+  border-radius: 12px;
+  border: 2.5px solid #5a5a5a;
+  display: block;
+  margin: 0 auto; 
+  margin-top: 10px;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto; 
+  text-align: center; 
+}
+/*Responsiveness*/
+@media (max-width: 600px) {
+  .content-box {width: 85%; padding: 15px;}
+  .about-text h1 {font-size: 1.5rem;}
+  .about-text p {font-size: 0.9rem;}
+}
+/*MISSION, VISION, VALUES*/
+.three-images {
+  display: flex;
+  justify-content: space-between; 
+  gap: 30px; 
+  width: 100%; 
+  flex-wrap: wrap; 
+}
+.three-images-container {
+  text-align: center;
+  flex: 1 1 calc(33.33% - 30px); 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+}
+.three-images-container img {
+  width: 65%; 
+  height: auto; 
+}
+.three-images-container p {
+  font-size: 1em;
+  color: #5a5a5a;
+  margin: 0; 
+  margin-bottom: 20px;
+}
+.three-images-container h2{margin: 0;}
+/*Responsiveness*/
+@media (max-width: 768px) {
+  .three-images-container {flex: 1 1 calc(50% - 20px); /*two containers per row*/}
+}
+@media (max-width: 480px) {.three-images-container {flex: 1 1 100%;}
+}
+/*FOUNDER SECTION*/
+.founder-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+.founder-container {
+  flex: 1;
+  text-align: left;
+}
+.founder-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.founder-container p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.image-founder-container {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+.image-founder-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 2.5px solid #5a5a5a;
+}
+/*Responsiveness*/
+@media (max-width: 768px) {
+  .founder-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .founder-container {text-align: center;}
+}
+</style>
+
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+  <a href="index.html">🏠HOME</a>
+    <a href="about.html" class="active">🔍ABOUT</a>
+    <a href="cats.html">💥GAME</a>
+    <a href="shop.html">🛍️SHOP</a>
+    <a href="price.html">🏷️PRICE</a>
+</nav>
+<!--SOCIAL MEDIA ICONS SIDEBAR-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="socials">
+  <a href="https://www.instagram.com/catsandfriends.uz/" class="instagram"><i class="fa fa-instagram"></i></a>
+  <a href="https://t.me/catsandfriends_uz" class="telegram"><i class="fa fa-telegram"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</aside>
+<!--SCROLL TO TOP BUTTON-->
+<button id="goToTopBtn" aria-label="Scroll to top" onclick="goToTop()">↑</button>
+
+<!--MAIN CONTENT-->
+<main class="content-box">
+  <div class="about-image">
+    <img src="../images/about.jpg" alt="About CatsAndFriends image">
+  </div>
+  <div class="about-text">
+    <p>We are cozy haven for cat lovers and feline friends! Whether you’re here to relax, bond with our playful and cuddly cats, or simply enjoy a cup of coffee, our space is designed to make you feel right at home.</p>
+    <p>Our mission goes beyond providing an escape for cat lovers. At CatsAndFriends, we create meaningful connections between people and animals while supporting the welfare of cats in need. A visit to our cafe means laughter, love, and a dose of fluffy comfort.</p>
+    <p>Every sip of coffee, every cuddle, and every purchase in our shop contributes to helping cats live healthier, happier lives. So, come on in, make some furry friends, and be part of our community!</p>
+  </div>
+</main>
+<!--MISSION, VISION, VALUES-->
+<div class="content-box">
+    <div class="three-images">
+      <div class="three-images-container">
+        <img src="../images/about-mission.jpg" alt="Our mission image">
+        <h2>MISSION</h2>
+        <p>Creating a safe, welcoming space where humans and cats connect while promoting feline welfare in Uzbekistan.</p>
+      </div>
+      <div class="three-images-container">
+        <img src="../images/about-vision.jpg" alt="Our vision image">
+        <h2>VISION</h2>
+        <p>To be the heart of the cat-loving community, inspiring kindness, care, and joy through shared experiences with cats.</p>
+      </div>
+      <div class="three-images-container">
+        <img src="../images/about-values.jpg" alt="Our values image">
+        <h2>VALUES</h2>
+        <p>We prioritize compassion, connection, and creativity in everything we do—for the love of cats and their people.</p>
+      </div>
+    </div>  
+</div>
+<!--FOUNDER SECTION-->
+<div class="content-box">
+  <div class="founder-section">
+    <div class="founder-container">
+      <h2>Meet the Founder!</h2>
+      <p>
+        Alpomish, the founder of CatsAndFriends Uz, has always believed in the magical bond between humans and cats. Inspired by his own journey of rescuing and caring for stray cats, Alpomish envisioned a space where people could experience the joy of spending time with these amazing creatures. By creating the CatCafe, he aimed to build a community that not only shares a love for cats but actively contributes to their well-being.
+      </p>
+    </div>
+    <div class="image-founder-container">
+      <img src="../images/about-founder.png" alt="Illustration of the Founder">
+    </div>
+  </div>
+</div>
+<!--FOOTER-->
+<footer class="footer">
+  <div class="footer-content">
+    <ul>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Partnerships</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+    <div class="newsletter-section">
+      <p>Subscribe to our newsletter we wont spam you!</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>  
+
+</body>
+</html>

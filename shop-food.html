@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" id="Shop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP FOOD | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+  <a href="index.html">🏠HOME</a>
+    <a href="about.html">🔍ABOUT</a>
+    <a href="cats.html">💥GAME</a>
+    <a href="shop.html" class="active">🛍️SHOP</a>
+    <a href="price.html">🏷️PRICE</a>
+</nav>        
+<!--SOCIAL MEDIA ICONS SIDEBAR-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="socials">
+  <a href="https://www.instagram.com/catsandfriends.uz/" class="instagram"><i class="fa fa-instagram"></i></a>
+  <a href="https://t.me/catsandfriends_uz" class="telegram"><i class="fa fa-telegram"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</aside>
+<!--SCROLL TO TOP BUTTON-->
+<button id="goToTopBtn" aria-label="Scroll to top" onclick="goToTop()">↑</button>
+<!--MAIN CONTENT-->
+<main class="content-box">
+  <div class="products">
+
+    <div class="product" data-id="1">
+      <img src="../images/food1.jpg" alt="Classic crunchy soft cat treat">
+      <h3>Classic crunchy soft cat treat seafood flavor</h3>
+      <button class="show-more-btn">Show More</button>
+    </div>
+
+    <div class="product" data-id="2">
+      <img src="../images/food2.jpg" alt="Classic crunchy soft cat treat chicken flavor">
+      <h3>Classic crunchy soft cat treat chicken flavor</h3>
+      <button class="show-more-btn">Show More</button>
+    </div>
+
+    <div class="product" data-id="3">
+      <img src="../images/food3.jpg" alt="Classic crunchy soft cat treat three flavors">
+      <h3>Classic crunchy soft cat treat three flavors</h3>
+      <button class="show-more-btn">Show More</button>
+    </div>
+
+    <div class="product" data-id="4">
+      <img src="../images/food4.jpg" alt="Delight cat milk">
+      <h3>Delight cat milk</h3>
+      <button class="show-more-btn">Show More</button>
+    </div>
+
+    <div class="product" data-id="5">
+      <img src="../images/food5.jpg" alt="Gourmet tinned pate">
+      <h3>Gourmet tinned pate</h3>
+      <button class="show-more-btn">Show More</button>
+    </div>
+
+    <div class="product" data-id="6">
+      <img src="../images/food6.jpg" alt="Smooth Chicken Paté">
+      <h3>Smooth Chicken Paté</h3>
+      <button class="show-more-btn">Show More</button>
+    </div>
+
+  </div>
+</main>
+  
+<!--SHOW MORE MODAL-->
+<div class="modal" id="showMoreModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeShowMore">✖</span>
+    <img src="../images/food1.jpg" alt="Product Image" id="modalImage">
+    <h2 id="modalName">modalName</h2>
+    <p id="modalPrice">Price: 0</p>
+    <p id="modalDescription"></p>
+    <label for="quantity">Quantity:</label>
+    <input id="quantity" type="number" min="1" max="10" value="1">
+    <label for="currency">Currency:</label>
+    <select id="currency">
+      <option value="UZS">UZS</option>
+      <option value="USD">USD</option>
+    </select>
+      <button class="add-to-cart-btn" id="addToCart">Add to cart</button>
+  </div>
+</div>
+
+<script>
+const products = [
+  {
+    id: 1,
+    name: "Classic crunchy soft cat treat seafood flavor",
+    price: 30000,
+    description: "Temptations cat treats are 100% nutritionally complete and balanced for adult cat maintenance and can be used as a treat, meal, or cat food topper. Your cat can’t wait to get their paws on these scrumptious cat food treats that are crunchy on the outside and soft on the inside.",
+    image: "../images/food1.jpg"
+  },
+  {
+    id: 2,
+    name: "Classic crunchy soft cat treat chicken flavor",
+    price: 30000,
+    description: "Temptations cat treats are 100% nutritionally complete and balanced for adult cat maintenance and can be used as a treat, meal, or cat food topper. Your cat can’t wait to get their paws on these scrumptious cat food treats that are crunchy on the outside and soft on the inside.",
+    image: "../images/food2.jpg"
+  },
+  {
+    id: 3,
+    name: "Classic crunchy soft cat treat three flavors",
+    price: 40000,
+    description: "Temptations cat treats are 100% nutritionally complete and balanced for adult cat maintenance and can be used as a treat, meal, or cat food topper. Your cat can’t wait to get their paws on these scrumptious cat food treats that are crunchy on the outside and soft on the inside..",
+    image: "../images/food3.jpg"
+  },
+  {
+    id: 4,
+    name: "Delight cat milk",
+    price: 40000,
+    description: "A nutritious and lactose-free milk specially crafted for cats, promoting hydration and healthy digestion with every sip.",
+    image: "../images/food4.jpg"
+  },
+  {
+    id: 5,
+    name: "Gourmet tinned pate",
+    price: 50000,
+    description: "Gourmet gold tinned cat food pate with ocean fish. A nutritious and lactose-free milk specially crafted for cats, promoting hydration and healthy digestion with every sip.",
+    image: "../images/food5.jpg"
+  },
+  {
+    id: 6,
+    name: "Smooth Chicken Paté",
+    price: 30000,
+    description: "Lily’s Kitchen Chicken Paté for Kittens – Packed with natural, freshly prepared chicken, offal, and fish, this grain-free recipe provides complete nutrition for your growing kitten.",
+    image: "../images/food6.jpg"
+  }
+];
+</script>
+  
+<!--FOOTER-->
+<footer class="footer">
+  <div class="footer-content">
+    <ul>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Partnerships</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+  <div class="newsletter-section">
+    <p>Subscribe to our newsletter we wont spam you</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+  </div>
+</footer> 
+  
+</body>
+</html>

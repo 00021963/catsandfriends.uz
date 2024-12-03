@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" id="Shop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+    <a href="index.html">🏠HOME</a>
+    <a href="about.html">🔍ABOUT</a>
+    <a href="cats.html">💥GAME</a>
+    <a href="shop.html" class="active">🛍️SHOP</a>
+    <a href="price.html">🏷️PRICE</a>
+  </nav>        
+<!--SOCIAL MEDIA ICONS SIDEBAR-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="socials">
+  <a href="https://www.instagram.com/catsandfriends.uz/" class="instagram"><i class="fa fa-instagram"></i></a>
+  <a href="https://t.me/catsandfriends_uz" class="telegram"><i class="fa fa-telegram"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</aside>
+<!--SCROLL TO TOP BUTTON-->
+<button id="goToTopBtn" aria-label="Scroll to top" onclick="goToTop()">↑</button>
+<!--MAIN CONTENT-->
+<main class="shop-container">
+    <div class="shop-box" id="food-box">
+        <a href="shop-food.html">
+            <div class="shop-content">
+                <img src="../images/shop-food.jpg" alt="Food" class="shop-image">
+                <h1>FOOD</h1>
+            </div>
+        </a>
+    </div>
+    
+    <div class="shop-box" id="stuff-box">
+        <a href="shop-stuff.html">
+            <div class="shop-content">
+                <img src="../images/shop-stuff.jpg" alt="Stuff" class="shop-image">
+                <h1>STUFF</h1>
+            </div>
+        </a>
+    </div>
+    
+    <div class="shop-box" id="clothes-box">
+        <div class="shop-content">
+            <img src="../images/shop-clothes.jpg" alt="Clothes" class="shop-image">
+            <h1>CLOTHES</h1>
+        </div>
+    </div>
+</main>
+
+<script>
+  //clothes coming soon alert
+  document.addEventListener("DOMContentLoaded", () => {
+    const clothesBox = document.getElementById("clothes-box");
+    clothesBox.addEventListener("click", () => {
+        showAlert("Coming soon, stay tuned!");
+    });
+
+    function showAlert(message) {
+        const modal = document.createElement("div");
+        modal.style.position = "fixed";
+        modal.style.top = "50%";
+        modal.style.left = "50%";
+        modal.style.transform = "translate(-50%, -50%)";
+        modal.style.backgroundColor = "yellow";
+        modal.style.padding = "20px";
+        modal.style.borderRadius = "12px";
+        modal.style.zIndex = "1000";
+        modal.style.textAlign = "center";
+
+        const modalMessage = document.createElement("p");
+        modalMessage.textContent = message;
+        modalMessage.style.fontSize = "24px";
+        modalMessage.style.color = "black";
+        modal.appendChild(modalMessage);
+
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "OK";
+        closeButton.style.marginTop = "5px";
+        closeButton.style.padding = "10px 20px";
+        closeButton.style.backgroundColor = "black";
+        closeButton.style.color = "yellow";
+        closeButton.style.border = "none";
+        closeButton.style.borderRadius = "5px";
+        closeButton.style.cursor = "pointer";
+
+        closeButton.addEventListener("click", () => {
+            document.body.removeChild(modal);
+        });
+
+        modal.appendChild(closeButton);
+        document.body.appendChild(modal);
+    }
+
+    const banner = document.createElement("div");
+    banner.textContent = "Welcome to the Shop! Explore our categories.";
+    banner.style.position = "fixed";
+    banner.style.top = "0";
+    banner.style.left = "0";
+    banner.style.width = "100%";
+    banner.style.color = "white";
+    banner.style.fontWeight = "bold"
+    banner.style.backgroundColor = "grey"
+    banner.style.padding = "10px";
+    banner.style.textAlign = "center";
+    banner.style.fontSize = "18px";
+    document.body.appendChild(banner);
+
+    setTimeout(() => {
+        document.body.removeChild(banner);
+    }, 5000);
+});
+</script>
+
+<!--FOOTER-->
+<footer class="footer">
+  <div class="footer-content">
+    <ul>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Partnerships</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+    <div class="newsletter-section">
+      <p>Subscribe to our newsletter we wont spam you</p>
+      <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer> 
+
+</body>
+</html>

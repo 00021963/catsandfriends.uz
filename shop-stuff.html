@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" id="Shop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP STUFF | catsandfriends.uz</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/scripts.js"></script>
+
+    <style>
+      .slideshow-stuff-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      #prevBtn {
+        padding: 10px 15px;
+        background-color: red;
+        font-size: larger;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;}
+      #prevBtn:hover {background-color: #ff7994;}
+      
+      #nextBtn {padding: 10px 15px;
+        background-color: red;
+        font-size: larger;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;}
+      #nextBtn:hover {background-color: #ff7994;}
+    </style>
+
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<nav class="topnav">
+  <a href="index.html">🏠HOME</a>
+    <a href="about.html">🔍ABOUT</a>
+    <a href="cats.html">💥GAME</a>
+    <a href="shop.html" class="active">🛍️SHOP</a>
+    <a href="price.html">🏷️PRICE</a>
+</nav>        
+<!--SOCIAL MEDIA ICONS SIDEBAR-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="socials">
+  <a href="https://www.instagram.com/catsandfriends.uz/" class="instagram"><i class="fa fa-instagram"></i></a>
+  <a href="https://t.me/catsandfriends_uz" class="telegram"><i class="fa fa-telegram"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</aside>
+<!--SCROLL TO TOP BUTTON-->
+<button id="goToTopBtn" aria-label="Scroll to top" onclick="goToTop()">↑</button>
+<!--MAIN CONTENT-->
+<main class="slideshow-stuff-container">
+    <button id="prevBtn">←</button>
+    <div class="product" id="currentProduct" data-id="1">
+      <img src="../images/stuff1.jpg" alt="Product Image">
+      <h3>Purrfect Keeper</h3>
+    <button class="show-more-btn">Show More</button>
+    </div>
+    <button id="nextBtn">→</button>
+</main>
+
+<script>
+  const products = [
+    { id: 1, image: '../images/stuff1.jpg', name: 'Purrfect Keeper', price: 200000, description: 'A sturdy, well-ventilated cat container designed for safe transport or a temporary resting space. Made with durable materials and secure locking mechanisms, it ensures your cat stays comfortable and secure during trips or when in need of a cozy retreat. Ideal for travel, vet visits, or as a safe haven at home.' },
+    { id: 2, image: '../images/stuff2.jpg', name: 'For yummy food', price: 50000, description: 'A wide, shallow food bowl designed to prevent whisker fatigue and keep mealtime mess-free. Made with non-slip material and easy-to-clean surfaces.' },
+    { id: 3, image: '../images/stuff3.jpg', name: 'Cozy Hideaway', price: 350000, description: 'A stylish woven condo crafted from durable, natural fibers. Offers your cat a private, comfy nook to nap, with a modern look that blends seamlessly into any home.' },
+    { id: 4, image: '../images/stuff4.jpg', name: 'PawTrek Harness', price: 20000, description: 'A comfortable and adjustable vest-style harness with a secure leash attachment. Designed to distribute pressure evenly across your cat chest, ensuring safe and stress-free walks. Made with breathable fabric and padded for extra comfort, it’s perfect for outdoor adventures with your feline friend.' },
+    { id: 5, image: '../images/stuff5.jpg', name: 'Star Tower', price: 100000, description: 'A multi-level cat tree featuring soft platforms, cozy cubbies, and sisal-wrapped posts for endless scratching fun. Perfect for play, rest, and exploration.' },
+    { id: 6, image: '../images/stuff6.jpg', name: 'Star Tower', price: 100000, description: 'A multi-level cat tree featuring soft platforms, cozy cubbies, and sisal-wrapped posts for endless scratching fun. Perfect for play, rest, and exploration.' }
+  ];
+  
+  let currentIndex = 0;
+  
+  function updateProduct() {
+    const product = products[currentIndex];
+    const currentProduct = document.getElementById("currentProduct");
+    currentProduct.dataset.id = product.id;
+    currentProduct.querySelector('img').src = product.image;
+    currentProduct.querySelector('h3').textContent = product.name;
+  }
+  
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : products.length - 1;
+    updateProduct();
+  });
+  
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    currentIndex = (currentIndex < products.length - 1) ? currentIndex + 1 : 0;
+    updateProduct();
+  });
+  
+  updateProduct();
+</script>
+  
+<!--SHOW MORE MODAL-->
+<div class="modal" id="showMoreModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeShowMore">&times;</span>
+      <img src="../images/food1.jpg" alt="Product Image" id="modalImage">
+      <h2 id="modalName">modalName</h2>
+      <p id="modalPrice">Price: 0</p>
+      <p id="modalDescription"></p>
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" type="number" min="1" max="10" value="1">
+      <label for="currency">Currency:</label>
+      <select id="currency">
+        <option value="UZS">UZS</option>
+        <option value="USD">USD</option>
+      </select>
+        <button class="add-to-cart-btn" id="addToCart">Add to cart</button>
+    </div>
+</div>
+
+<!--FOOTER-->
+<footer class="footer">
+    <div class="footer-content">
+      <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Partnerships</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    <div class="newsletter-section">
+      <p>Subscribe to our newsletter we wont spam you</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    </div>
+  </footer> 
+  
+</body>
+
+</html>
+  
